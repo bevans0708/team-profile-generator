@@ -14,6 +14,6 @@ test("getRole() should return \"Intern\"", () => {
 
 test("Can get school via getSchool()", () => {
   const testValue = "UofU";
-  const event = new Intern("Foobar", 1, "test@example.com", testValue);
+  const event = new intern("Foobar", 1, "test@example.com", testValue);
   expect(event.getSchool()).toBe(testValue);
 });
