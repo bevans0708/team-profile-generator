@@ -1,7 +1,10 @@
 # Team Profile Generator
 
+   ### Video Example of Application
+   * https://www.youtube.com/watch?v=Eprqw4RhXKg
+
    ## Description
-   This projects aim is to create an HTML file that will render all team members, their roles and various ways to contact them. All this information should be displayed as cards on the HTML page.
+   This projects aim is to create an HTML file that will render all team members, their roles and various ways to contact them. All this information should be displayed as cards      on the HTML page.
 
    ## Table of Contents
    
