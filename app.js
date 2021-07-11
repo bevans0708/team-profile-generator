@@ -9,7 +9,6 @@ const outputDir = path.resolve(__dirname, "output");
 const outputPath = path.join(outputDir, "index.html");
 
 const render = require("./lib/htmlRenderer");
-const manager = require("./lib/manager");
 
 const team = [];
 addToTeam();
@@ -18,6 +17,7 @@ function addToTeam() {
    inquirer.prompt([
       {
          type: "list",
+         name: "addEmployee",
          message: "Select type of employee to add, or select 'Finish' to end.",
          choices: [
             "Manager",
@@ -28,7 +28,7 @@ function addToTeam() {
       }
    ]).then(function(data) {
       const employeeType = data.addEmployee;
-      if (employeeType === "manager") {
+      if (employeeType === "Manager") {
          managerInfo();
       } else if (employeeType === "Engineer") {
          engineerInfo();
@@ -98,7 +98,7 @@ function managerInfo() {
       const manager = new Manager(data.managerName, data.managerId, data.managerEmail, data.managerOffice);
       team.push(manager);
       addToTeam();
-    });
+   });
 };
 
 function engineerInfo() {
@@ -159,7 +159,7 @@ function engineerInfo() {
       const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGithub);
       team.push(engineer);
       addToTeam();
-    });
+   });
 };
 
 function internInfo() {
@@ -220,15 +220,15 @@ function internInfo() {
       const intern = new Intern(data.internName, data.internId, data.internEmail, data.internSchool);
       team.push(intern);
       addToTeam();
-    });
+   });
 };
 
 function renderTeam() {
    fs.writeFile(outputPath, render(team), "utf-8", function(error, data) {
-     if (error) {
-       throw error;
-     }
- 
-     console.log("Your team has been rendered successfully! Check output folder for results!");
+      if (error) {
+         throw error;
+      }
+      
+      console.log("Your team has been rendered successfully! Check output folder for results!");
    })
- }
+}
